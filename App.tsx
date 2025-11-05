@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import StudyPlan from './components/StudyPlan';
 import Chatbot from './components/Chatbot';
+import AiStatusBanner from './components/AiStatusBanner';
 import LiveConversation from './components/LiveConversation';
 import { ChatIcon, MicrophoneIcon } from './components/Icons';
 import { studyPlanData } from './data/studyPlan';
@@ -47,6 +48,7 @@ export default function App(): React.ReactElement {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-200 font-sans">
       <Header />
+      <AiStatusBanner isKeyMissing={!(process.env as any)?.API_KEY} />
       <QuickNav data={studyPlanData} completedDays={completedDays} />
       <main className="container mx-auto px-4 py-8">
         <StudyPlan
