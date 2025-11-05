@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>60-Day English Speaking Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+      :root { font-family: 'Inter', sans-serif; }
+      @supports (font-variation-settings: normal) {
+        :root { font-family: 'Inter var', sans-serif; }
+      }
+      .animated-gradient {
+        background: linear-gradient(to right, #67e8f9, #a78bfa, #f472b6, #67e8f9);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient-animation 4s linear infinite;
+      }
+
+      @keyframes gradient-animation {
+        to {
+            background-position: 200% center;
+        }
+      }
+
+      .fab-pop-in {
+        animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        transform: scale(0);
+        opacity: 0;
+      }
+      .fab-pop-in:nth-child(1) { animation-delay: 0.2s; }
+      .fab-pop-in:nth-child(2) { animation-delay: 0.1s; }
+
+      @keyframes pop-in {
+          from { transform: scale(0); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
+      }
+
+      @keyframes pulse-green {
+        0% { box-shadow: 0 0 0 0px rgba(74, 222, 128, 0.5); }
+        100% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+      }
+      .animate-pulse-green { 
+        animation: pulse-green 1s ease-out;
+      }
+
+      /* Confetti Styles */
+      .confetti-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 100;
+      }
+
+      .confetti-piece {
+        position: absolute;
+        width: 10px;
+        height: 20px;
+        top: -20px;
+        opacity: 0;
+        animation: fall 5s linear forwards;
+      }
+
+      @keyframes fall {
+          0% {
+              transform: translateY(0vh) rotateZ(0deg) rotateY(0deg);
+              opacity: 1;
+          }
+          100% {
+              transform: translateY(100vh) rotateZ(720deg) rotateY(360deg);
+              opacity: 0;
+          }
+      }
+
+      /* Result Pop-in animation */
+      @keyframes pop-in-result {
+        from { transform: scale(0.8) translateY(10px); opacity: 0; }
+        to { transform: scale(1) translateY(0); opacity: 1; }
+      }
+      .animate-pop-in-result {
+          animation: pop-in-result 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-markdown": "https://esm.sh/react-markdown@9.0.1?bundle"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

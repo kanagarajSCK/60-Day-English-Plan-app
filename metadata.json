@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Copy of Copy of 60-Day English Speaking Plan",
+  "description": "An interactive web application to guide users through a 60-day English speaking course, complete with daily lessons, vocabulary, practice exercises, and an AI-powered chat assistant.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
