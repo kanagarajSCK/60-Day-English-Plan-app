@@ -130,13 +130,16 @@
 // is available.
 import { ChatMessage } from '../types';
 
-// Use Vite's define replacement token so the API key gets inlined at build time.
-const API_KEY: string | undefined = (process.env as any)?.API_KEY as string | undefined;
+// Check multiple possible env var locations to find the API key
+const API_KEY: string | undefined = 
+    (process.env as any)?.VITE_GEMINI_API_KEY || // Vite public env vars
+    (process.env as any)?.GEMINI_API_KEY ||      // Direct env var
+    (process.env as any)?.API_KEY;               // Fallback
 
 if (!API_KEY) {
     // Warn instead of throwing — callers will get friendly fallbacks.
     // eslint-disable-next-line no-console
-    console.warn('GEMINI API key not set. Gemini features are disabled.');
+        console.warn('GEMINI API key not found. Please set GEMINI_API_KEY in your Netlify environment variables.');
 }
 
 let ai: any | null = null;

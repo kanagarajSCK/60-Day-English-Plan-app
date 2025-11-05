@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       define: {
+        // Make API key available as VITE_GEMINI_API_KEY in the client
+        'process.env.VITE_GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+        // Keep old references for compatibility
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
       },
