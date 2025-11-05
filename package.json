@@ -1,6 +1,7 @@
 {
-  "name": "copy-of-copy-of-copy-of-60-day-english-speaking-plan",
+  "name": "60-day-english-speaking-plan",
   "private": true,
+  "homepage": ".",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
