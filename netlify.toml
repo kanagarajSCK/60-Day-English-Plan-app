@@ -1,7 +1,8 @@
 # Netlify configuration for SPA routing and publish directory
 [build]
+  command = "npm run build"
   publish = "dist"
-
+  
 [[redirects]]
   from = "/*"
   to = "/index.html"
