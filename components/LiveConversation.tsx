@@ -3,7 +3,7 @@ import { connectLive } from '../services/geminiService';
 import { decode, encode, decodeAudioData } from '../utils/audioUtils';
 import { CloseIcon, MicrophoneIcon } from './Icons';
 // @FIX: The LiveSession type is not exported from @google/genai.
-import { Blob as GenAiBlob } from '@google/genai';
+// Avoid importing @google/genai at module top-level in the browser bundle; use any for blob.
 
 interface LiveConversationProps {
   isOpen: boolean;
@@ -87,10 +87,10 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ isOpen, onClose }) 
                   for (let i = 0; i < l; i++) {
                       int16[i] = inputData[i] * 32768;
                   }
-                  const pcmBlob: GenAiBlob = {
-                      data: encode(new Uint8Array(int16.buffer)),
-                      mimeType: 'audio/pcm;rate=16000',
-                  };
+          const pcmBlob: any = {
+            data: encode(new Uint8Array(int16.buffer)),
+            mimeType: 'audio/pcm;rate=16000',
+          };
                   sessionPromiseRef.current?.then((session) => {
                       session.sendRealtimeInput({ media: pcmBlob });
                   });
