@@ -8,7 +8,7 @@ const Header: React.FC = () => {
           Kanagaraj's 60-Day English Plan
         </h1>
         <p className="mt-2 text-lg text-gray-300">
-          Guided by Sabi my love
+          Guided by Sabi my love ❤️
         </p>
       </div>
     </header>
